@@ -7,6 +7,26 @@
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 	<style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<script>
+	  document.addEventListener('DOMContentLoaded', function() {
+		try {
+		  var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+		  var node;
+		  while ((node = walker.nextNode())) {
+			var t = node.nodeValue;
+			var newText = t.replace(/\bpromosi\b/gi, '').replace(/\bpromo\b/gi, '');
+			if (newText !== t) {
+			  node.nodeValue = newText;
+			}
+		  }
+		  if (document && document.title) {
+			document.title = document.title.replace(/\bpromosi\b/gi, '').replace(/\bpromo\b/gi, '');
+		  }
+		} catch (e) {
+		  // silently ignore
+		}
+	  });
+	</script>
 	<!-- This site is optimized with the Yoast SEO plugin v26.3 - https://yoast.com/wordpress/plugins/seo/ -->
 	<title>Toyota Promo Medan - Promo Terbaik - Diskon OK - Harga Miring</title>
 	<meta name="description" content="Informasi Harga, Promo dan Diskon Terbaik hanya disini. Ready Toyota Brio, Wrv, Brv, City Rs , Hrv, City, Civic, Crv, Accord">
@@ -885,7 +905,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <ul class="nav header-nav header-bottom-nav nav-left  nav-size-small nav-spacing-small nav-uppercase nav-prompts-overlay">
                     <li id="menu-item-350" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-350 active menu-item-design-default"><a href="index.html" aria-current="page" class="nav-top-link">Home</a></li>
 <li id="menu-item-353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-353 menu-item-design-default"><a href="#produk" class="nav-top-link">Produk</a></li>
-<li id="menu-item-351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351 menu-item-design-default"><a href="#promo" class="nav-top-link">Promosi</a></li>
+<li id="menu-item-351" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351 menu-item-design-default"><a href="pricelist.html" class="nav-top-link">Pricelist</a></li>
 <li id="menu-item-1207" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207 menu-item-design-default"><a href="simulasi-kredit.html" class="nav-top-link">Simulasi Kredit</a></li>
 <li id="menu-item-1385" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1385 menu-item-design-default"><a href="test-drive.html" class="nav-top-link">Test Drive</a></li>
 <li id="menu-item-1568" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1568 menu-item-design-default"><a href="trade-in.html" class="nav-top-link">Tukar Tambah</a></li>
@@ -2163,47 +2183,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 			
 			
 
-<div class="message-box relative" style="padding-top:10px;padding-bottom:10px;"><div class="message-box-bg-image bg-fill fill"></div><div class="message-box-bg-overlay bg-fill fill" style="background-color:rgb(187, 0, 0);"></div><div class="container relative"><div class="inner last-reset">
+<div class="message-box relative" style="padding-top:10px;padding-bottom:10px;"><div class="message-box-bg-image bg-fill fill"><div class="container relative"><div class="inner last-reset">
 
-<div class="row row-small align-middle align-center" id="row-926416302">
-
-
-	<div id="col-1711981222" class="col medium-8 small-12 large-8">
-				<div class="col-inner">
-			
-			
-
-<h3>Tertarik Dengan Promo Kami Yang Lain?</h3>
-<p>Promo Kredit Tanpa Survey / Angsuran Mulai 2,5 Jutaan !</p>
-
-		</div>
-					</div>
-
-	
-
-	<div id="col-91041611" class="col medium-4 small-12 large-3">
-				<div class="col-inner text-right">
-			
-			
-
-<a href="https://api.whatsapp.com/send?phone=6285207614448&amp;text=Halo%20M.%20Andriansyah%2C%20saya%20tertarik%20dengan%20promo%20Toyotanya" target="_self" class="button success is-gloss is-xxlarge box-shadow-3 box-shadow-5-hover wabt" style="border-radius:99px;">
-        <i class="fa fa-phone fa-rotate-90"></i>  <span>085207614448</span>
-  </a>
-
-
-
-		</div>
-				
-<style>
-#col-91041611 > .col-inner {
-  margin: 13px 0px 0px 0px;
-}
-</style>
-	</div>
-
-	
-
-</div>
 
 </div></div></div>
 
@@ -3136,7 +3117,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-primary pull-left">
               <div class="menu-main-navigator-container"><ul id="menu-main-navigator-1" class="links footer-nav uppercase"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-350"><a href="https://hondapromomedan.com/" aria-current="page">Home</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-353"><a href="#produk">Produk</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a href="#promo">Promosi</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a href="pricelist.html">Pricelist</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207"><a href="simulasi-kredit.html">Simulasi Kredit</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1385"><a href="test-drive.html">Test Drive</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1568"><a href="trade-in.html">Tukar Tambah</a></li>
@@ -3188,7 +3169,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>	</div>
 </li><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-17 current_page_item menu-item-350"><a href="index.html" aria-current="page">Home</a></li>
 <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-353"><a href="#produk">Produk</a></li>
-<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a href="#promo">Promosi</a></li>
+<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351"><a href="pricelist.html">Pricelist</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207"><a href="simulasi-kredit.html">Simulasi Kredit</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1385"><a href="test-drive.html">Test Drive</a></li>
 <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1568"><a href="trade-in.html">Tukar Tambah</a></li>
@@ -3666,13 +3647,13 @@ var wc_single_product_params = {"i18n_required_rating_text":"Please select a rat
 
       // Map promo images based on the label number (e.g., "Dp Mulai 33 Jtn")
       var availablePromo = {
-        21: 'promo-21-juta.png',
-        33: 'promo-33-juta.png',
-        52: 'promo-52-juta.png',
-        90: 'promo-90-juta.png',
+        21: 'promo-21-juta.jpg',
+        33: 'promo-33-juta.jpg',
+        52: 'promo-52-juta.jpg',
+        90: 'promo-90-juta.jpg',
         // fallback mappings until exact assets are available
-        35: 'promo-90-juta.png',
-        50: 'promo-52-juta.png'
+        35: 'promo-90-juta.jpg',
+        50: 'promo-52-juta.jpg'
       };
       var promoRow = document.querySelector('#row-5210471');
       if (promoRow) {

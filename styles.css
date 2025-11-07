@@ -610,3 +610,68 @@ input[type="button"].primary,
   height: 150px;
   --divider-width: 100%;
 }
+/* Pricelist tables */
+.pricelist-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 12px;
+}
+
+.section-title {
+  margin: 8px 0 16px;
+  font-weight: 600;
+}
+
+.model-header {
+  margin: 24px 0 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #222;
+  border-left: 4px solid var(--accent-color);
+  padding-left: 8px;
+}
+
+.price-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 18px;
+  font-size: 0.95rem;
+}
+
+.price-table th,
+.price-table td {
+  border: 1px solid #1a1414ff;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.price-table thead th {
+  background-color: var(--accent-color);
+  color: #f6f6faff;
+  font-weight: 600;
+}
+
+.price-table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+.price-table tbody tr:hover {
+  background-color: #f0f7ff;
+}
+
+/* Make tables readable on small screens */
+@media (max-width: 640px) {
+  .price-table th,
+  .price-table td {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+  .pricelist-wrapper {
+    overflow-x: auto;
+  }
+}
+/* Accent color for the page */
+:root {
+  --accent-color: #141c88ff;
+}
