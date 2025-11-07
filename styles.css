@@ -248,6 +248,88 @@ body {
 }
 
 /* ===== Extracted from index.html: Custom Navbar Styles ===== */
+/* ===== Modal Produk ===== */
+.car-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+.car-modal-overlay.open {
+  display: flex;
+}
+.car-modal {
+  background: var(--surface);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  max-width: 840px;
+  width: calc(100% - 32px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+}
+.car-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.car-modal-title {
+  margin: 0;
+  font-size: 18px;
+}
+.car-modal-close {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 22px;
+  cursor: pointer;
+}
+.car-modal-body {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  padding: 16px;
+}
+@media (min-width: 720px) {
+  .car-modal-body {
+    grid-template-columns: 320px 1fr;
+  }
+}
+.car-modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: var(--card);
+}
+.car-modal-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.car-modal-category {
+  color: var(--muted);
+  margin: 0 0 8px 0;
+}
+.car-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.car-modal-wa {
+  background: #25d366;
+  color: #0b0d12;
+  font-weight: 700;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.car-modal-wa:hover {
+  filter: brightness(1.05);
+}
 :root {
   --navbar-blue: #2563eb;
   --navbar-blue-2: #1e40af;
