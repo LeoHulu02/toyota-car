@@ -468,6 +468,127 @@ input[type="button"].primary,
 }
 
 /* ===== Moved from simulasi-kredit.html: specific layout tweaks ===== */
+/* Credit Simulator form: responsive grid and controls */
+.caldera-grid .row .single {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .caldera-grid .row .single {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.caldera-grid .form-group {
+  margin: 0;
+}
+.caldera-grid .form-group .control-label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.caldera-grid .form-control,
+.caldera-grid select.form-control {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.caldera-grid .form-control:focus,
+.caldera-grid select.form-control:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+.caldera-grid input[type="number"]::-webkit-outer-spin-button,
+.caldera-grid input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.caldera-grid input[type="number"] {
+  -moz-appearance: textfield;
+}
+.caldera-grid .btn.btn-success {
+  width: 100%;
+  padding: 12px 16px;
+  font-weight: 600;
+  border-radius: 8px;
+}
+@media (min-width: 768px) {
+  .caldera-grid .btn.btn-success { width: auto; }
+}
+.sim-result {
+  margin-top: 16px;
+  padding: 12px 14px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #f9fafb;
+}
+.sim-result h4 { margin: 0 0 8px; font-weight: 700; }
+.sim-result ul li { margin: 4px 0; }
+
+/* Center and pad the Simulasi Kredit form on mobile */
+#caldera_form_1 {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+#caldera_form_1 h3 { text-align: center; }
+@media (min-width: 768px) {
+  #caldera_form_1 { padding-left: 0; padding-right: 0; }
+}
+
+/* Fix Caldera default row gutters on mobile to avoid left overhang */
+@media (max-width: 767px) {
+  .caldera-grid .row { margin-left: 0 !important; margin-right: 0 !important; }
+  .caldera-grid .col-xs-12 { padding-left: 0 !important; padding-right: 0 !important; }
+}
+
+/* Precise fix for Simulasi Kredit rows (IDs start with CF622978aa3f81e_1-row-) */
+@media (max-width: 767px) {
+  [id^="CF622978aa3f81e_1-row-"][class~="row"] { margin-left: 0 !important; margin-right: 0 !important; }
+  [id^="CF622978aa3f81e_1-row-"][class~="row"] .col-xs-12 { padding-left: 0 !important; padding-right: 0 !important; }
+}
+
+/* Responsive container widths from 375px up to desktop */
+#caldera_form_1,
+#CF622978aa3f81e_1 {
+  box-sizing: border-box;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 375px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 540px; }
+}
+@media (min-width: 480px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 560px; }
+}
+@media (min-width: 640px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 680px; }
+  .caldera-grid .row .single { grid-template-columns: 1fr 1fr; gap: 16px; }
+}
+@media (min-width: 768px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 800px; padding-left: 0; padding-right: 0; }
+}
+@media (min-width: 1024px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 960px; }
+}
+@media (min-width: 1280px) {
+  #caldera_form_1, #CF622978aa3f81e_1 { max-width: 1080px; }
+}
+
+/* Progressive spacing for single grid wrapper */
+.caldera-grid .row .single { gap: 12px; }
+@media (min-width: 1024px) { .caldera-grid .row .single { gap: 20px; } }
 #col-459924037 > .col-inner {
   padding: 0 0 0 25px;
 }
