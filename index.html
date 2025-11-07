@@ -6985,6 +6985,9 @@
             <a href="#produk">Produk</a>
           </li>
           <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351">
+            <a href="pricelist.html">Pricelist</a>
+          </li>
+          <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351">
             <a href="#promo">Promosi</a>
           </li>
           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1207">
@@ -7068,6 +7071,69 @@
         document.addEventListener("keyup", function (e) {
           if (e.key === "Escape") closeMenu();
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        var menu = document.getElementById("main-menu");
+        var overlay = document.getElementById("mobileMenuOverlay");
+        function closeMenuGeneric() {
+          if (!menu) return;
+          menu.classList.remove("open");
+          menu.classList.add("mfp-hide");
+          document.body.style.overflow = "";
+          if (overlay) overlay.classList.remove("active");
+          var toggle = document.querySelector('a[aria-controls="main-menu"]');
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+        }
+
+        // Smooth-scroll for any on-page anchor links; also closes mobile menu if open
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest('a[href^="#"]');
+          if (!a) return;
+          var href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          e.preventDefault();
+          var id = href.slice(1);
+          var target = document.getElementById(id) || document.querySelector('[name="' + id + '"]');
+          closeMenuGeneric();
+          setTimeout(function () {
+            if (target && target.scrollIntoView) {
+              try {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+              } catch (err) {
+                target.scrollIntoView();
+              }
+            } else {
+              location.hash = href;
+            }
+          }, 50);
+        });
+
+        // Ensure clicks inside mobile menu anchors also close and scroll
+        if (menu) {
+          menu.addEventListener("click", function (e) {
+            var a = e.target.closest('a[href^="#"]');
+            if (!a) return;
+            var href = a.getAttribute("href");
+            if (!href || href === "#") return;
+            e.preventDefault();
+            var id = href.slice(1);
+            var target = document.getElementById(id) || document.querySelector('[name="' + id + '"]');
+            closeMenuGeneric();
+            setTimeout(function () {
+              if (target && target.scrollIntoView) {
+                try {
+                  target.scrollIntoView({ behavior: "smooth", block: "start" });
+                } catch (err) {
+                  target.scrollIntoView();
+                }
+              } else {
+                location.hash = href;
+              }
+            }, 50);
+          });
+        }
       })();
     </script>
     <script type="speculationrules">

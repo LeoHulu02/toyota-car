@@ -19,39 +19,57 @@
   }
 
   function buildModalOnce() {
-    if ($('#carModal')) return;
-    var overlay = document.createElement('div');
-    overlay.id = 'carModal';
-    overlay.className = 'car-modal-overlay';
-    overlay.innerHTML = [
-      '<div class="car-modal" role="dialog" aria-modal="true" aria-labelledby="car-modal-title">',
-      '  <div class="car-modal-header">',
-      '    <h3 id="car-modal-title" class="car-modal-title">Detail Mobil</h3>',
-      '    <button class="car-modal-close" aria-label="Tutup">&times;</button>',
-      '  </div>',
-      '  <div class="car-modal-body">',
-      '    <img class="car-modal-image" alt="Gambar mobil" />',
-      '    <div class="car-modal-info">',
-      '      <h4 class="car-modal-name"></h4>',
-      '      <p class="car-modal-category"></p>',
-      '      <div class="car-modal-actions">',
-      '        <a class="car-modal-wa btn" target="_blank" rel="noopener">WhatsApp</a>',
-      '      </div>',
-      '    </div>',
-      '  </div>',
-      '</div>'
-    ].join('');
-    document.body.appendChild(overlay);
+    // Gunakan modal yang sudah ada di HTML jika tersedia, jika tidak buat baru
+    var overlay = $('#carModal');
+    if (!overlay) {
+      overlay = document.createElement('div');
+      overlay.id = 'carModal';
+      overlay.className = 'car-modal-overlay';
+      overlay.innerHTML = [
+        '<div class="car-modal" role="dialog" aria-modal="true" aria-labelledby="car-modal-title">',
+        '  <div class="car-modal-header">',
+        '    <h3 id="car-modal-title" class="car-modal-title">Detail Mobil</h3>',
+        '    <button class="car-modal-close" aria-label="Tutup">&times;</button>',
+        '  </div>',
+        '  <div class="car-modal-body">',
+        '    <img class="car-modal-image" alt="Gambar mobil" />',
+        '    <div class="car-modal-info">',
+        '      <h4 class="car-modal-name"></h4>',
+        '      <p class="car-modal-category"></p>',
+        '      <div class="car-modal-actions">',
+        '        <a class="car-modal-wa btn" target="_blank" rel="noopener">WhatsApp</a>',
+        '      </div>',
+        '    </div>',
+        '  </div>',
+        '</div>'
+      ].join('');
+      document.body.appendChild(overlay);
+    }
 
-    // Close handlers
-    overlay.addEventListener('click', function (e) {
-      if (e.target === overlay) { closeModal(); }
-    });
-    var closeBtn = $('.car-modal-close', overlay);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeModal();
-    });
+    // Pasang handler sekali saja untuk menghindari duplikasi
+    if (!overlay.dataset.wired) {
+      overlay.addEventListener('click', function (e) {
+        // Tutup modal hanya jika klik terjadi di area luar dialog (overlay)
+        if (!e.target.closest('.car-modal')) { closeModal(); }
+      });
+      var closeBtn = $('.car-modal-close', overlay);
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+      overlay.dataset.wired = 'true';
+    }
+
+    // Keydown listener: pasang sekali saja di dokumen
+    if (!document.body.dataset.modalKeydownWired) {
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+      });
+      document.body.dataset.modalKeydownWired = 'true';
+    }
+    // Hapus fallback global agar tidak mengintersep listener close di tombol
   }
 
   function openModal(details) {
@@ -106,9 +124,8 @@
         if (!anchor) return;
         anchor.addEventListener('click', function (e) {
           // Jika anchor adalah tombol harga, biarkan default
-          if (anchor.matches('[data-role="price-button"], .yith-wcqv-button') ||
-              (anchor.getAttribute('href') || '').indexOf('pricelist.html') !== -1) {
-            return; // jangan preventDefault
+          if (anchor.matches('[data-role="price-button"], .yith-wcqv-button')) {
+            return; // tombol harga menuju pricelist
           }
           e.preventDefault();
           e.stopPropagation();

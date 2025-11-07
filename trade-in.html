@@ -1702,7 +1702,9 @@
       src="https://hondapromomedan.com/wp-includes/js/wp-emoji-release.min.js?ver=6.8.3"
       defer=""
     ></script>
-  </head>
+<!-- Include shared site styles so modal and cards match index.html -->
+<link rel="stylesheet" href="styles.css" />
+</head>
 
   <body
     class="home wp-singular page-template-default page page-id-17 wp-theme-flatsome theme-flatsome woocommerce-js full-width header-shadow lightbox nav-dropdown-has-arrow nav-dropdown-has-shadow nav-dropdown-has-border parallax-mobile page-template-blank page-template-blank-php"
@@ -1921,7 +1923,7 @@
                     id="menu-item-353"
                     class="menu-item menu-item-type-custom menu-item-object-custom menu-item-353 menu-item-design-default"
                   >
-                    <a href="index.html#produk" class="nav-top-link">Produk</a>
+                    <a href="#produk" class="nav-top-link">Produk</a>
                   </li>
                   <li
                     id="menu-item-351"
@@ -7434,7 +7436,7 @@
                     <a href="index.html" aria-current="page">Home</a>
                   </li>
                   <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-353">
-                    <a href="index.html#produk">Produk</a>
+                    <a href="#produk">Produk</a>
                   </li>
                   <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-351">
 <a href="pricelist.html">Pricelist</a>
@@ -7486,18 +7488,17 @@
           right: 12px;
           top: 12px;
           z-index: 10001;
-          background: #000;
           color: #fff;
           border: none;
           width: 32px;
-          height: 32px;
+          height: 2px;
           border-radius: 16px;
           font-size: 20px;
           line-height: 28px;
           cursor: pointer;
+          opacity: 0;
         "
       >
-        ×
       </button>
 
       <div class="sidebar-menu no-scrollbar text-center">
@@ -7597,6 +7598,68 @@
         </ul>
       </div>
     </div>
+
+    <script>
+      (function () {
+        var menu = document.getElementById("main-menu");
+        var overlay = document.getElementById("mobileMenuOverlay");
+        function closeMenuGeneric() {
+          if (!menu) return;
+          menu.classList.remove("open");
+          menu.classList.add("mfp-hide");
+          document.body.style.overflow = "";
+          if (overlay) overlay.classList.remove("active");
+          var toggle = document.querySelector('a[aria-controls="main-menu"]');
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+        }
+
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest('a[href^="#"]');
+          if (!a) return;
+          var href = a.getAttribute("href");
+          if (!href || href === "#") return;
+          e.preventDefault();
+          var id = href.slice(1);
+          var target = document.getElementById(id) || document.querySelector('[name="' + id + '"]');
+          closeMenuGeneric();
+          setTimeout(function () {
+            if (target && target.scrollIntoView) {
+              try {
+                target.scrollIntoView({ behavior: "smooth", block: "start" });
+              } catch (err) {
+                target.scrollIntoView();
+              }
+            } else {
+              location.hash = href;
+            }
+          }, 50);
+        });
+
+        if (menu) {
+          menu.addEventListener("click", function (e) {
+            var a = e.target.closest('a[href^="#"]');
+            if (!a) return;
+            var href = a.getAttribute("href");
+            if (!href || href === "#") return;
+            e.preventDefault();
+            var id = href.slice(1);
+            var target = document.getElementById(id) || document.querySelector('[name="' + id + '"]');
+            closeMenuGeneric();
+            setTimeout(function () {
+              if (target && target.scrollIntoView) {
+                try {
+                  target.scrollIntoView({ behavior: "smooth", block: "start" });
+                } catch (err) {
+                  target.scrollIntoView();
+                }
+              } else {
+                location.hash = href;
+              }
+            }, 50);
+          });
+        }
+      })();
+    </script>
 
     <script type="speculationrules">
       {
