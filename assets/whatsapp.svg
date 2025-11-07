@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48" aria-label="WhatsApp">
+  <title>WhatsApp</title>
+  <circle cx="256" cy="256" r="256" fill="#25D366"/>
+  <!-- phone glyph -->
+  <path fill="#ffffff" d="M351 361l-28-28c-7-7-19-7-26 0l-19 19c-31-15-56-40-71-71l19-19c7-7 7-19 0-26l-28-28c-7-7-19-7-26 0l-14 14c-12 12-15 31-7 47 27 61 79 114 140 140 16 7 35 4 47-7l14-14c7-7 7-19 0-26z"/>
+</svg>

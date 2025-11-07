@@ -1,0 +1,491 @@
+:root {
+  --bg: #0b0d12;
+  --surface: #121520;
+  --card: #171a26;
+  --text: #e9edf7;
+  --muted: #b6bed1;
+  --brand: #e53935; /* Toyota red accent */
+  --brand-2: #2563eb; /* blue for CTAs */
+  --border: #242a39;
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.6;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: linear-gradient(to bottom, rgba(11, 13, 18, 0.95), rgba(11, 13, 18, 0.75));
+  backdrop-filter: saturate(120%) blur(6px);
+  border-bottom: 1px solid var(--border);
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 64px;
+}
+.brand-title {
+  font-weight: 700;
+  font-size: 18px;
+}
+.brand-sub {
+  color: var(--muted);
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.hero {
+  background:
+    radial-gradient(1200px 400px at 20% 0%, rgba(37, 99, 235, 0.15), transparent),
+    radial-gradient(800px 300px at 80% 10%, rgba(229, 57, 53, 0.18), transparent);
+  border-bottom: 1px solid var(--border);
+}
+.hero-inner {
+  padding: 72px 0 40px;
+  text-align: center;
+}
+.hero h1 {
+  font-size: 34px;
+  margin: 0 0 12px;
+}
+.lead {
+  color: var(--muted);
+  max-width: 800px;
+  margin: 0 auto 20px;
+}
+
+.cta-group {
+  display: inline-flex;
+  gap: 12px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+}
+.btn-primary {
+  background: var(--brand-2);
+  color: white;
+}
+.btn-primary:hover {
+  filter: brightness(1.05);
+}
+.btn-outline {
+  border-color: var(--border);
+  color: var(--text);
+  background: transparent;
+}
+.btn-outline:hover {
+  border-color: var(--muted);
+}
+
+.section {
+  padding: 32px 0;
+}
+.section h2 {
+  font-size: 20px;
+  margin: 0 0 16px;
+}
+
+.card-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 720px) {
+  .card-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+}
+.card h3 {
+  margin-top: 0;
+}
+.list {
+  margin: 0;
+  padding-left: 18px;
+}
+.list li {
+  margin: 6px 0;
+}
+.note {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.contact {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.contact-card {
+  text-align: center;
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.footer-inner {
+  padding: 18px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Override: paksa gambar profil sales menggunakan aset lokal */
+.et_pb_blurb_0 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap {
+  position: relative;
+  display: inline-block;
+  background-image: url("/assets/foto-profile.jpg?v=2");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 6px;
+}
+.et_pb_blurb_0 .et_pb_main_blurb_image .et_pb_only_image_mode_wrap img {
+  opacity: 0 !important; /* jika skrip tema menimpa src, tetap disembunyikan */
+}
+/* CTA Trade-in button styles */
+.cta-tradein {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #bb0000, #d32424) !important;
+  color: #fff !important;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  border-radius: 999px !important;
+  box-shadow: 0 8px 20px rgba(187, 0, 0, 0.3);
+  border: none;
+  text-decoration: none;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    filter 0.15s ease;
+}
+
+.cta-tradein:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(187, 0, 0, 0.4);
+  filter: brightness(1.05);
+}
+
+.cta-tradein:active {
+  transform: translateY(0);
+}
+
+.cta-tradein .cta-icon {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  text-align: center;
+  font-size: 14px;
+}
+
+.cta-tradein.large {
+  padding: 16px 26px;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .cta-tradein {
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+  .cta-tradein.large {
+    padding: 14px 20px;
+  }
+}
+
+/* ===== Extracted from index.html: Custom Navbar Styles ===== */
+:root {
+  --navbar-blue: #2563eb;
+  --navbar-blue-2: #1e40af;
+}
+#header {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+#masthead,
+#wide-nav {
+  background: linear-gradient(180deg, var(--navbar-blue), var(--navbar-blue-2));
+  color: #fff;
+}
+#masthead .header-inner {
+  padding: 10px 16px;
+}
+#logo img {
+  height: 48px;
+  width: auto;
+}
+#wide-nav .nav a {
+  color: #ffffff !important;
+}
+#wide-nav .nav a.nav-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+#wide-nav .nav a.nav-top-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+.header-bottom.wide-nav {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+.header-bg-container {
+  display: none !important;
+}
+.icon-menu,
+.icon-phone,
+.icon-instagram {
+  color: #fff !important;
+}
+.mobile-nav .menu-title {
+  color: #fff !important;
+}
+
+/* ===== Extracted from index.html: Override blue backgrounds ===== */
+.header-bottom,
+[data-text-bg="primary"],
+.scroll-to-bullets a,
+.featured-title,
+.label-new.menu-item > a:after,
+.nav-pagination > li > .current,
+.nav-pagination > li > span:hover,
+.nav-pagination > li > a:hover,
+.has-hover:hover .badge-outline .badge-inner,
+button[type="submit"],
+.button.wc-forward:not(.checkout):not(.checkout-button),
+.button.submit-button,
+.button.primary:not(.is-outline),
+.featured-table .title,
+.is-outline:hover,
+.has-icon:hover .icon-label,
+.nav-dropdown-bold .nav-column li > a:hover,
+.nav-dropdown.nav-dropdown-bold > li > a:hover,
+.nav-dropdown-bold.dark .nav-column li > a:hover,
+.nav-dropdown.nav-dropdown-bold.dark > li > a:hover,
+.header-vertical-menu__opener,
+.tagcloud a:hover,
+.grid-tools a,
+input[type="submit"]:not(.is-form),
+.box-badge:hover .box-text,
+input.button.alt,
+.nav-box > li > a:hover,
+.nav-box > li.active > a,
+.nav-pills > li.active > a,
+.current-dropdown .cart-icon strong,
+.cart-icon:hover strong,
+.nav-line-bottom > li > a:before,
+.nav-line-grow > li > a:before,
+.nav-line > li > a:before,
+.banner,
+.header-top,
+.slider-nav-circle .flickity-prev-next-button:hover svg,
+.slider-nav-circle .flickity-prev-next-button:hover .arrow,
+input[type="reset"].button,
+input[type="button"].primary,
+.badge-inner,
+.footer-2 {
+  background-color: #2563eb !important;
+}
+
+/* ===== Extracted from index.html: Hero carousel styles ===== */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1226px;
+  height: 692px;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+}
+.carousel-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.6s ease;
+}
+.carousel-slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: 0;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  z-index: 5;
+  border-radius: 22px;
+}
+.carousel-btn.prev {
+  left: 10px;
+}
+.carousel-btn.next {
+  right: 10px;
+}
+.carousel-dots {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 5;
+}
+.carousel-dots .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+}
+.carousel-dots .dot.is-active {
+  background: #fff;
+}
+#rev_slider_1_1_forcefullwidth,
+#rev_slider_1_1_wrapper,
+#rev_slider_1_1 {
+  display: none !important;
+}
+
+/* ===== Touchy bar: rapikan tombol Phone ===== */
+.touchy-wrapper .touchy-call-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+  height: 65px;
+}
+.touchy-wrapper .touchy-call-button::before {
+  display: block;
+  margin: 6px 0 0 0 !important;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.2;
+}
+.touchy-call-button .touchy-call-text-label-offset {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.touchy-call-text-label-offset > div,
+.touchy-call-text-label-offset span,
+.touchy-call-text-label-offset i {
+  position: static !important;
+  top: auto !important;
+}
+.touchy-icon-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+}
+.touchy-icon-call i {
+  display: block;
+  font-size: 18px;
+  line-height: 1;
+}
+.touchy-icon-call img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* ===== Moved from simulasi-kredit.html: specific layout tweaks ===== */
+#col-459924037 > .col-inner {
+  padding: 0 0 0 25px;
+}
+@media (min-width: 550px) {
+  #col-459924037 > .col-inner {
+    padding: 0 0 0 24px;
+  }
+}
+
+#section_1742166140 {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#section_1742166140 .ux-shape-divider--top svg {
+  height: 150px;
+  --divider-top-width: 100%;
+}
+#section_1742166140 .ux-shape-divider--bottom svg {
+  height: 150px;
+  --divider-width: 100%;
+}

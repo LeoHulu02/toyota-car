@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" aria-label="Lokasi">
+  <title>Lokasi</title>
+  <path fill="#E53935" d="M12 2C8.134 2 5 5.134 5 9c0 5.5 7 13 7 13s7-7.5 7-13c0-3.866-3.134-7-7-7z"/>
+  <circle cx="12" cy="9" r="3.2" fill="#ffffff"/>
+</svg>

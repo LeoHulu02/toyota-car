@@ -1,0 +1,9 @@
+node_modules/
+assets/
+**/*.min.js
+**/*.min.css
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.webp
+simulasi-kredit.html
